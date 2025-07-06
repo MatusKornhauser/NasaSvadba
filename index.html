@@ -62,7 +62,8 @@
     <form id="rsvp-form" class="text-start">
         <div class="mb-3">
             <label for="count" class="form-label">Koľko osôb príde?</label>
-            <input type="number" class="form-control" id="count" name="count" min="1" max="20" required />
+            <input type="number" class="form-control form-control-lg" id="count" name="count" min="1" max="20" required inputmode="numeric" pattern="[0-9]*" />
+
         </div>
 
         <div id="guests"></div>
