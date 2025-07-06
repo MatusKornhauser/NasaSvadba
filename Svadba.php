@@ -1,8 +1,12 @@
+<?php
+// Tu môžeš spracovať POST, ak chceš (momentálne necháme prázdne)
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Svadba Mária a Matúš</title>
     <style>
         body {
@@ -92,7 +96,7 @@
                 data[key] = value;
             }
 
-            // Poslať na Google Sheet
+            // Poslať na Google Sheet (ponecháme fetch, nech je to stále funkčné)
             fetch('https://script.google.com/macros/s/AKfycbzwLLT2fW-W-6goNWGGzdIKfsn_iTI2WNibh5F4kIsSAfELNTD_ee8YPcy1m3Ig8Hda/exec', {
                 method: 'POST',
                 mode: 'no-cors',
