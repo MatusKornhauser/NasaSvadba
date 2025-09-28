@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -8,27 +7,67 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #fef9f4;
+            font-family: 'Poppins', sans-serif;
+            background: #fffdfc;
             color: #333;
-            padding: 40px 15px;
         }
-        h1 {
-            color: #b85c38;
+        header {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1529634890561-14efb3c0f87c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-        .container {
-            max-width: 600px;
-            background: #fff;
-            padding: 30px;
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #fff;
+            z-index: 1;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #fdf6f0;
+            z-index: 1;
+        }
+        section {
+            padding: 60px 15px;
+        }
+        .card {
+            border: none;
             border-radius: 20px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin-bottom: 20px;
+            background: #fff;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #b85c38;
+            margin-bottom: 20px;
         }
         .btn-custom {
             background-color: #b85c38;
             border-color: #b85c38;
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            color: #fff;
         }
         .btn-custom:hover {
             background-color: #9c4c2e;
@@ -38,46 +77,95 @@
             border: 2px solid #b85c38;
             background-color: #ffffff;
             color: #b85c38;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-top: 20px;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
+            font-weight: 500;
+        }
+        /* Galéria */
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-<div class="container text-center">
-    <h1>Mária a Matúš</h1>
-    <p>Srdečne vás pozývame na našu svadbu!</p>
-    <p><strong>Dátum:</strong> 03. októbra 2026</p>
-    <p><strong>Sobáš:</strong> kostol Božského Srdca Ježišovho v Oravskej Polhore</p>
-    <p><strong>Miesto:</strong> Oravská Polhora kultúrny dom</p>
-    <p><strong>Začiatok:</strong> 15:00</p>
 
-    <h2>Potvrdenie účasti</h2>
-    <p>Radi by sme vedeli, koľko z vás príde osláviť náš veľký deň po našom boku. Prosíme vás preto, aby ste nám dali
-        vedieť, koľko osôb plánuje prísť, a zároveň uviedli ich celé mená (meno a priezvisko), aby sme sa mohli na
-        každého pripraviť a nič nezabudnút. Ďakujeme, že nám pomáhate pripraviť svadobný deň, na ktorý nikdy nezabudneme.</p>
+<!-- Hero sekcia -->
+<header>
+    <div>
+        <h1>Mária & Matúš</h1>
+        <p>03. októbra 2026</p>
+        <a href="#info" class="btn btn-custom mt-3">Viac informácií</a>
+    </div>
+</header>
 
-    <form id="rsvp-form" class="text-start">
-        <div class="mb-3">
-            <label for="count" class="form-label">Koľko osôb príde?</label>
-            <input type="number" class="form-control form-control-lg" id="count" name="count" min="1" max="20" required inputmode="numeric" pattern="[0-9]*" />
-
+<!-- Info sekcia -->
+<section id="info">
+    <div class="container">
+        <div class="card text-center">
+            <h2>Náš deň</h2>
+            <p class="lead">Srdečne vás pozývame na našu svadbu!</p>
+            <p><strong>Sobáš:</strong> Kostol Božského Srdca Ježišovho v Oravskej Polhore</p>
+            <p><strong>Hostina:</strong> Oravská Polhora kultúrny dom</p>
+            <p><strong>Začiatok:</strong> 15:00</p>
         </div>
+    </div>
+</section>
 
-        <div id="guests"></div>
+<!-- Galéria -->
+<section id="galeria" class="bg-light">
+    <div class="container">
+        <h2 class="text-center">Fotky</h2>
+        <div class="row g-3 gallery">
+            <div class="col-6 col-md-4"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt=""></div>
+            <div class="col-6 col-md-4"><img src="https://images.unsplash.com/photo-1530023367847-a683933f417e?auto=format&fit=crop&w=800&q=80" alt=""></div>
+            <div class="col-6 col-md-4"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=800&q=80" alt=""></div>
+            <div class="col-6 col-md-4"><img src="https://images.unsplash.com/photo-1529634890561-14efb3c0f87c?auto=format&fit=crop&w=800&q=80" alt=""></div>
+            <div class="col-6 col-md-4"><img src="https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?auto=format&fit=crop&w=800&q=80" alt=""></div>
+            <div class="col-6 col-md-4"><img src="https://images.unsplash.com/photo-1508779018996-199ef3b30a0d?auto=format&fit=crop&w=800&q=80" alt=""></div>
+        </div>
+    </div>
+</section>
 
-        <button type="submit" class="btn btn-custom">Odoslať</button>
-    </form>
+<!-- RSVP -->
+<section id="rsvp">
+    <div class="container">
+        <div class="card">
+            <h2 class="text-center">Potvrdenie účasti</h2>
+            <p>Prosíme, dajte nám vedieť, koľko osôb plánuje prísť, a uveďte ich celé mená.</p>
 
-    <div id="confirmation" class="d-none"></div>
-</div>
+            <form id="rsvp-form">
+                <div class="mb-3">
+                    <label for="count" class="form-label">Koľko osôb príde?</label>
+                    <input type="number" class="form-control form-control-lg" id="count" name="count" min="1" max="20" required />
+                </div>
+
+                <div id="guests"></div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom">Odoslať</button>
+                </div>
+            </form>
+
+            <div id="confirmation" class="d-none"></div>
+        </div>
+    </div>
+</section>
 
 <script>
-    document.getElementById('count').addEventListener('input', function () {
-        const numberOfGuests = parseInt(this.value);
-        const guestsDiv = document.getElementById('guests');
+    const countInput = document.getElementById('count');
+    const guestsDiv = document.getElementById('guests');
+    const form = document.getElementById('rsvp-form');
+    const confirmationDiv = document.getElementById('confirmation');
+
+    countInput.addEventListener('input', () => {
+        const numberOfGuests = parseInt(countInput.value);
         guestsDiv.innerHTML = '';
 
         if (!isNaN(numberOfGuests) && numberOfGuests > 0 && numberOfGuests <= 20) {
@@ -105,9 +193,8 @@
         }
     });
 
-    document.getElementById('rsvp-form').addEventListener('submit', function (e) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const form = this;
         const formData = new FormData(form);
         const data = {};
 
@@ -115,37 +202,29 @@
             data[key] = value;
         }
 
-        // Poslať na Google Sheet
         fetch('https://script.google.com/macros/s/AKfycbzwLLT2fW-W-6goNWGGzdIKfsn_iTI2WNibh5F4kIsSAfELNTD_ee8YPcy1m3Ig8Hda/exec', {
             method: 'POST',
             mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(data).toString()
         });
 
-        // Zobraziť potvrdenie
         let summary = `<strong>Ďakujeme za potvrdenie!</strong><br>`;
-        summary += `Počet hostí: <strong>${formData.get("count")}</strong><br><div>`;
+        summary += `Počet hostí: <strong>${formData.get("count")}</strong><br><div class="mt-2">`;
 
         for (let [key, value] of formData.entries()) {
             if (key.startsWith("guest-")) {
                 summary += `<p>${value}</p>`;
             }
         }
-
         summary += `</div>`;
 
-        const confirmationDiv = document.getElementById('confirmation');
         confirmationDiv.innerHTML = summary;
         confirmationDiv.classList.remove('d-none');
 
         form.reset();
-        document.getElementById('guests').innerHTML = '';
+        guestsDiv.innerHTML = '';
     });
 </script>
-
 </body>
 </html>
-
